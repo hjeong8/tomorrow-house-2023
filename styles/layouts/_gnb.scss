@@ -13,22 +13,6 @@
     }
   }
 
-  &-icon-button {
-    @include flexbox;
-    width: 32px;
-    height: 32px;
-    font-size: 24px;
-    color: $secondary;
-
-    & + & {
-      margin-left: 4px;
-    }
-  }
-
-  &-menu-button {
-    color: $blue;
-  }
-
   .logo {
     @include pos-center;
 
@@ -44,9 +28,54 @@
   }
 
   @include responsive(T) {
+    &-wrapper {
+      height: 80px;
+    }
+
+    &-left {
+      @include flexbox(start);
+    }
+
+    &-right {
+      @include flexbox(end);
+
+      .button-group {
+        margin-right: 24px;
+      }
+    }
+
     .logo {
       position: static;
       transform: none;
+      margin-right: 32px;
+
+      img {
+        height: 24px;
+      }
+    }
+
+    .btn-primary {
+      width: 88px;
+      i {
+        margin-left: 4px;
+      }
+    }
+
+    .avatar-32 {
+      border: 3px solid transparent;
+      transition: border-color 200ms ease-in-out;
+      &:hover,
+      &:active {
+        border-color: $blue;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-right {
+      .button-group {
+        margin-left: 24px;
+      }
     }
   }
 }
